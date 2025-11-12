@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+/* Reset & box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Make html and body take full height */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: #f8fafc;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/* Optional: give each section a slightly different background */
+#home { background-color: #f0f4f8; }
+#about { background-color: #e0f2fe; }
+#contact { background-color: #fef3c7; }
+#signin { background-color: #d1fae5; }
+
+/* Prevent extra scroll due to margins */
+h1, h2, p {
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Optional: hide scrollbar if dragging shows white */
+body::-webkit-scrollbar {
+  width: 8px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
 }
