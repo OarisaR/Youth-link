@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../config/firebase";
 import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
+import bg from "./signin.png"
 import "./SignUp.css";
 
 export default function SignUp() {
@@ -117,7 +118,14 @@ export default function SignUp() {
   };
 
   return (
-    <section className="yl-signup" aria-labelledby="signup-title">
+    <section className="yl-signup" style={{
+    backgroundImage: `url(${bg})`,
+    backgroundRepeat: "no-repeat",      
+    backgroundPosition: "center center", 
+    backgroundSize: "cover",             // zooms in to fill the section
+    backgroundAttachment: "fixed",       
+  }} aria-labelledby="signup-title">
+      
       <div className="yl-signup__backdrop" aria-hidden="true" />
       <div className="yl-signup__card" role="dialog" aria-modal="true">
         <h2 id="signup-title">Create your account</h2>

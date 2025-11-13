@@ -1,7 +1,6 @@
 // ...existing code...
 import React, { useState } from "react";
 import "./LandingNavbar.css";
-import logo from "../assets/logo.png";
 
 const NavBar = () => {
   const [active, setActive] = useState("home");
@@ -24,7 +23,7 @@ const NavBar = () => {
           role="button"
           aria-label="Go to home"
         >
-          <img src={logo} alt="YouthLink Logo" />
+          <img src="/assets/logo.png" alt="YouthLink Logo" />
         </div>
 
         <ul className="yl-links">

@@ -1,95 +1,161 @@
 .yl-signin {
-  position: relative;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  padding: 40px 20px;
+  position: relative;
+  scroll-margin-top: var(--header-height);
 }
 
 .yl-signin__backdrop {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(14,165,233,0.05));
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* put behind card and logo */
   background-size: cover;
   background-position: center;
-  filter: blur(4px) brightness(0.9);
+}
+
+.yl-signin__logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 24px;
 }
 
 .yl-signin__card {
-  position: relative;
-  z-index: 2;
   width: 100%;
-  max-width: 420px;
-  background: #fff;
+  max-width: 440px;
+  background: white;
+  padding: 48px 40px;
   border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 12px 40px rgba(2,6,23,0.12);
-  border: 1px solid rgba(15,23,42,0.04);
+  border: 3px solid var(--text);
+  box-shadow: 8px 8px 0 var(--text);
 }
 
 .yl-signin__card h2 {
-  margin: 0 0 0.75rem 0;
-  font-size: 1.25rem;
-  color: #0f172a;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: -0.02em;
 }
 
 .yl-signin__form {
-  display: grid;
-  gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.yl-signin__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .label-text {
-  display: block;
-  font-size: 0.85rem;
-  color: #374151;
-  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-input[type="email"],
-input[type="password"] {
+.yl-signin__form input {
   width: 100%;
-  padding: 0.6rem 0.75rem;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--bg-top);
+  border: 3px solid var(--text);
   border-radius: 8px;
-  border: 1px solid #e6e9ef;
-  font-size: 0.95rem;
-  color: #0f172a;
-  background: #fff;
+  font-family: inherit;
+  transition: all 0.2s ease;
 }
 
-input:focus {
-  outline: 2px solid rgba(37,99,235,0.12);
-  border-color: #2563eb;
+.yl-signin__form input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 3px 3px 0 var(--text);
+  transform: translate(-1px, -1px);
+}
+
+.yl-signin__form input::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
 }
 
 .yl-signin__error {
-  color: #b91c1c;
-  font-size: 0.9rem;
-  padding: 0.25rem 0.5rem;
-}
-
-.yl-signin__submit {
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 0.75rem;
+  padding: 7px 10px;
+  background: #fee;
+  border: 3px solid #c33;
   border-radius: 8px;
-  cursor: pointer;
+  color: #c33;
+  font-size: 14px;
   font-weight: 600;
 }
 
+.yl-signin__submit {
+  padding: 14px 15px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  background: var(--lime);
+  border: 3px solid var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--text);
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 8px;
+}
+
 .yl-signin__submit:hover {
-  filter: brightness(0.98);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--text);
+}
+
+.yl-signin__submit:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--text);
 }
 
 .yl-signin__meta {
-  margin-top: 0.6rem;
-  font-size: 0.9rem;
-  color: #475569;
   text-align: center;
+  margin-top: 24px;
+  font-size: 15px;
+  color: var(--muted);
 }
 
 .yl-signin__meta a {
-  color: #2563eb;
+  color: var(--purple);
+  font-weight: 600;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
+
+.yl-signin__meta a:hover {
+  color: var(--purple-2);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .yl-signin__card {
+    padding: 32px 24px;
+    box-shadow: 6px 6px 0 var(--text);
+  }
+
+  .yl-signin__card h2 {
+    font-size: 28px;
+  }
+
+  .yl-signin__logo {
+    width: 100px;
+  }
+}
+

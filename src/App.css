@@ -23,7 +23,6 @@ html, body {
 #home { background: linear-gradient(180deg, #f8fafc 0%, #f0f4f8 100%); }
 #about { background: linear-gradient(180deg, #f0f4f8 0%, #e8eef5 100%); }
 #contact { background: linear-gradient(180deg, #e8eef5 0%, #e0e8f0 100%); }
-#signin { background: linear-gradient(180deg, #e0e8f0 0%, #dce4ec 100%); }
 
 /* Prevent extra scroll due to margins */
 h1, h2, p {

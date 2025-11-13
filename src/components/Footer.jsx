@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import logo from "../assets/logo.png";
 import {
   FaFacebookF,
   FaTwitter,
@@ -15,7 +14,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <img
-              src={logo}
+              src="/assets/logo.png"
               alt="YouthLink Logo"
               style={{ width: "150px", height: "auto" }}
             />

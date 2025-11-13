@@ -12,13 +12,23 @@
 }
 
 /* Header */
+/* Header - Glassy Effect */
 .yl-header {
   padding: 20px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  
+
+  /* Frosted glass background */
+  background: rgba(248, 250, 252, 0.4); /* Slightly more transparent */
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
+
+  /* Smooth transition when background changes on scroll */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 /* Navigation Container */
 .yl-nav {
