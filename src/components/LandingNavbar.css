@@ -1,98 +1,211 @@
-/* LandingNavBar.css */
+/* ========================================
+   YOUTH LINK - Landing Page Navbar
+   Professional + Minimalist Design
+   Colors: #CDEB3C (Lime) | #A78BFA (Purple)
+======================================== */
 
-/* Root variables for colors, shadows, etc. */
-:root {
-  --yl-bg: #ffffff;
-  --yl-muted: #6b7280;
-  --yl-accent: #0ea5e9;
-  --yl-primary: #2563eb;
-  --yl-shadow: 0 6px 18px rgba(16,24,40,0.06);
-  --yl-radius: 10px;
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Header */
 .yl-header {
+  background: #ffffff;
+  padding: 20px 40px;
   position: sticky;
   top: 0;
-  z-index: 1200;
-  background: var(--yl-bg);
-  border-bottom: 1px solid rgba(15,23,42,0.04);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  z-index: 1000;
+  
 }
 
-/* Navbar container */
+/* Navigation Container */
 .yl-nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  gap: 1rem;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-
-/* Brand / Logo */
-.yl-brand {
-  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Brand/Logo */
+.yl-brand {
   cursor: pointer;
+  outline: none;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.yl-brand:hover {
+  transform: translateY(-2px);
+}
+
+.yl-brand img {
+  height: 60px;
+  width: auto;
   user-select: none;
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: #0f172a;
 }
 
-.yl-logo {
-  color: var(--yl-primary);
-  letter-spacing: -0.5px;
-}
-
+/* Hide text spans when using image */
+.yl-logo,
 .yl-link {
-  color: #111827;
-  opacity: 0.9;
+  display: none;
 }
 
-/* Links list */
+.yl-brand:focus {
+  outline: 2px solid #A78BFA;
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+/* Navigation Links Container - Single Rounded Box */
 .yl-links {
   display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   align-items: center;
+  list-style: none;
+  gap: 0;
+  background: white;
+  border: 2px solid #001f3f;;
+  border-radius: 50px;
+  padding: 5px;
+  background-color: #E8E8E8;
 }
 
-.yl-links li button,
-.yl-links li a {
+.yl-links li {
+  display: inline-block;
+  margin: 0;
+}
+
+.yl-links button {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2a2a2a;
   background: transparent;
   border: none;
-  padding: 0.5rem 0.6rem;
-  color: var(--yl-muted);
-  font-weight: 500;
   cursor: pointer;
-  border-radius: 8px;
-  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif !important;
+  border-radius: 50px;
 }
 
-.yl-links li button:hover,
-.yl-links li button:focus,
-.yl-links li a:hover,
-.yl-links li a:focus {
-  color: var(--yl-accent);
-  background: rgba(14,165,233,0.06);
-  outline: none;
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .yl-nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .yl-logo,
+  .yl-link {
+    font-size: 32px;
+  }
 }
 
-/* Call-to-action button */
+@media (max-width: 768px) {
+  .yl-header {
+    padding: 20px;
+  }
+
+  .yl-logo,
+  .yl-link {
+    font-size: 28px;
+  }
+
+  .yl-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .yl-links button {
+    padding: 10px 24px;
+    font-size: 15px;
+  }
+
+  .yl-cta {
+    padding: 10px 28px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .yl-logo,
+  .yl-link {
+    font-size: 24px;
+  }
+
+  .yl-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .yl-links li {
+    width: 100%;
+  }
+
+  .yl-links button,
+  .yl-cta {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .yl-links li:last-child {
+    margin-left: 0;
+  }
+}
+.yl-links button.active {
+  background: #A78BFA;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.4);
+  outline: 1px solid #001f3f; /* Navy blue outline */
+}
+
+.yl-links button.active:hover {
+  background: #9b7ce8;
+  color: #fff;
+}
+
 .yl-cta {
-  background: var(--yl-primary);
-  color: white;
-  padding: 0.45rem 0.8rem;
-  border-radius: 8px;
-  box-shadow: var(--yl-shadow);
+    position: relative;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(180deg, #b19aef 0%, #9b7fe8 100%);
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    box-shadow:
+        0 6px 0 0 #000000,
+        0 10px 16px rgba(0, 0, 0, 0.25);
+    transition: all 0.15s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+    text-decoration: none;
+    display: inline-block;
 }
 
-.yl-cta:hover,
-.yl-cta:focus {
-  filter: brightness(0.97);
+.yl-cta:hover {
+    transform: translateY(2px);
+    box-shadow:
+        0 4px 0 0 #000000,
+        0 8px 12px rgba(0, 0, 0, 0.25);
 }
+
+.yl-cta:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 2px 0 0 #000000,
+        0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+

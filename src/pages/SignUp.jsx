@@ -2,29 +2,29 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../config/firebase";
-import { doc, setDoc } from "firebase/firestore";
-// your Firestore config
+import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 import "./SignUp.css";
+
 export default function SignUp() {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
-  const [education, setEducation] = useState("");
-  const [experience, setExperience] = useState("");
+  const [educationLevel, setEducationLevel] = useState("");
+  const [experienceLevel, setExperienceLevel] = useState("");
   const [careerTrack, setCareerTrack] = useState("");
   const [error, setError] = useState("");
 
   const validate = () => {
     if (
-      !name.trim() ||
+      !fullName.trim() ||
       !email.trim() ||
       !password ||
       !confirm ||
-      !education ||
-      !experience ||
+      !educationLevel ||
+      !experienceLevel ||
       !careerTrack
     ) {
       return "Please fill out all fields.";
@@ -58,24 +58,60 @@ export default function SignUp() {
       );
       const user = userCredential.user;
       console.log("User registered:", user);
-      await setDoc(doc(db, "users", user.uid), {
-        name,
+      
+      // Get the current user count from metadata collection
+      const metadataRef = doc(db, "metadata", "userCount");
+      const metadataSnap = await getDoc(metadataRef);
+      
+      let nextUserNumber;
+      
+      if (metadataSnap.exists()) {
+        const currentCount = metadataSnap.data().count;
+        nextUserNumber = currentCount + 1;
+        console.log("Current count:", currentCount, "Next user number:", nextUserNumber);
+      } else {
+        console.error("Metadata document does not exist!");
+        setError("System error: Please contact administrator.");
+        return;
+      }
+      
+      // Generate sequential document ID: user4ID, user5ID, etc.
+      const customDocId = `user${nextUserNumber}ID`;
+      console.log("Creating user with ID:", customDocId);
+      
+      // Store user data with custom document ID
+      await setDoc(doc(db, "users", customDocId), {
+        fullName,
         email,
-        education,
-        experience,
+        educationLevel,
+        experienceLevel,
         careerTrack,
         createdAt: new Date(),
+        // Fields to be completed later in profile
+        cvText: "Paste your CV text here...",
+        experienceDescription: "",
+        skills: [],
+        careerInterests: [],
+        // Store Firebase Auth UID for reference
+        authUID: user.uid
       });
-      // You can also store additional info (name, education, etc.) in Firestore here
-      setName("");
+      
+      // Update the user count in metadata
+      await updateDoc(metadataRef, { count: nextUserNumber });
+      console.log("Updated metadata count to:", nextUserNumber);
+
+      // Clear form
+      setFullName("");
       setEmail("");
       setPassword("");
       setConfirm("");
-      setEducation("");
-      setExperience("");
+      setEducationLevel("");
+      setExperienceLevel("");
       setCareerTrack("");
+      
       navigate("/user/dashboard");
     } catch (err) {
+      console.error("Signup error:", err);
       setError(err.message);
     }
   };
@@ -91,8 +127,8 @@ export default function SignUp() {
             <span className="label-text">Full name</span>
             <input
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
               placeholder="First Last"
               required
               aria-label="Full name"
@@ -139,9 +175,9 @@ export default function SignUp() {
             <span className="label-text">Education level / Department</span>
             <input
               type="text"
-              value={education}
-              onChange={(e) => setEducation(e.target.value)}
-              placeholder="e.g., Computer Science"
+              value={educationLevel}
+              onChange={(e) => setEducationLevel(e.target.value)}
+              placeholder="e.g., Master's in Graphic Design"
               required
               aria-label="Education level or department"
             />
@@ -150,8 +186,8 @@ export default function SignUp() {
           <label>
             <span className="label-text">Experience level</span>
             <select
-              value={experience}
-              onChange={(e) => setExperience(e.target.value)}
+              value={experienceLevel}
+              onChange={(e) => setExperienceLevel(e.target.value)}
               required
               aria-label="Experience level"
             >
@@ -179,7 +215,6 @@ export default function SignUp() {
 
           <button
             type="submit"
-            onClick={handleSubmit}
             className="yl-signup__submit"
           >
             Sign up

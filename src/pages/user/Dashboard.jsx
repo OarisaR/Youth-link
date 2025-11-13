@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 
 function Dashboard() {
   const [userName, setUserName] = useState("");
@@ -13,10 +13,15 @@ function Dashboard() {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {
-          const userRef = doc(db, "users", user.uid);
-          const userSnap = await getDoc(userRef);
-          if (userSnap.exists()) {
-            setUserName(userSnap.data().name);
+          // Query the users collection where authUID matches the current user's UID
+          const usersRef = collection(db, "users");
+          const q = query(usersRef, where("authUID", "==", user.uid));
+          const querySnapshot = await getDocs(q);
+          
+          if (!querySnapshot.empty) {
+            // Get the first (and should be only) matching document
+            const userDoc = querySnapshot.docs[0];
+            setUserName(userDoc.data().fullName);
           } else {
             setUserName("User"); // fallback if doc missing
           }

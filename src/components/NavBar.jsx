@@ -1,8 +1,13 @@
-import React from "react";
+// ...existing code...
+import React, { useState } from "react";
 import "./LandingNavbar.css";
+import logo from "../assets/logo.png";
 
 const NavBar = () => {
+  const [active, setActive] = useState("home");
+
   const handleScroll = (id) => {
+    setActive(id);
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -19,27 +24,43 @@ const NavBar = () => {
           role="button"
           aria-label="Go to home"
         >
-          <span className="yl-logo">YOUTH</span>
-          <span className="yl-link">LINK</span>
+          <img src={logo} alt="YouthLink Logo" />
         </div>
 
         <ul className="yl-links">
           <li>
-            <button onClick={() => handleScroll("home")}>Home</button>
+            <button
+              className={active === "home" ? "active" : ""}
+              onClick={() => handleScroll("home")}
+            >
+              Home
+            </button>
           </li>
           <li>
-            <button onClick={() => handleScroll("about")}>About</button>
+            <button
+              className={active === "about" ? "active" : ""}
+              onClick={() => handleScroll("about")}
+            >
+              About
+            </button>
           </li>
           <li>
-            <button onClick={() => handleScroll("contact")}>Contact</button>
-          </li>
-          <li>
-            <a className="yl-cta" href="/signin">Sign In</a>
+            <button
+              className={active === "contact" ? "active" : ""}
+              onClick={() => handleScroll("contact")}
+            >
+              Contact
+            </button>
           </li>
         </ul>
+
+        <div className="yl-actions">
+          <a className="yl-cta" href="/signin">Sign In</a>
+        </div>
       </nav>
     </header>
   );
 };
 
 export default NavBar;
+// ...existing code...

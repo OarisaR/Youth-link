@@ -1,4 +1,5 @@
 /* Reset & box-sizing */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* prevent horizontal scroll */
-  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
   background-color: #f8fafc;
   scroll-behavior: smooth;
 }
