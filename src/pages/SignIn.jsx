@@ -67,7 +67,7 @@ export default function SignIn() {
         role="dialog"
         aria-labelledby="signin-title"
       >
-        <h2 id="signin-title">Sign in to YouthLink</h2>
+        <h2 id="signin-title">Welcome back!</h2>
 
         <form onSubmit={handleSubmit} className="yl-signin__form" noValidate>
           <label>

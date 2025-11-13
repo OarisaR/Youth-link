@@ -1,41 +1,110 @@
 .user-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-}
-
-.user-navbar {
-  background-color: #1e1e2f;
-  padding: 1rem;
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.user-navbar a {
-  color: #ccc;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.user-navbar a.active {
-  color: #00bcd4;
-  border-bottom: 2px solid #00bcd4;
-}
-
-.logout-btn {
-  background: #ff5252;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: auto;
+  min-height: 100vh;
+  background: var(--bg-top);
 }
 
 .user-content {
   flex-grow: 1;
-  padding: 2rem;
-  background-color: #f8f9fb;
+  padding: 32px 40px;
+  background: var(--bg-top);
+}
+
+.user-navbar {
+  display: flex;
+  align-items: center;
+  padding: 16px 40px;
+  background: white;
+  gap: 40px;
+}
+
+.navbar-logo {
+  width:120px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-links a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.navbar-links a:hover {
+  color: var(--text);
+}
+
+.navbar-links a.active {
+  color: var(--text);
+  position: relative;
+}
+
+.navbar-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -19px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--lime);
+}
+
+.logout-btn {
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  background: var(--purple);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  box-shadow: 2px 2px 0 var(--text);
+}
+
+.logout-btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--text);
+}
+
+.logout-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--text);
+}
+
+@media (max-width: 768px) {
+  .user-navbar {
+    padding: 14px 20px;
+    gap: 20px;
+  }
+
+  .navbar-logo {
+    height: 30px;
+  }
+
+  .navbar-links {
+    gap: 16px;
+    overflow-x: auto;
+  }
+
+  .navbar-links a {
+    font-size: 13px;
+  }
+
+  .user-content {
+    padding: 24px 20px;
+  }
 }

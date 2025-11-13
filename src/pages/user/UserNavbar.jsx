@@ -18,18 +18,23 @@ export default function UserNavbar() {
 
   return (
     <nav className="user-navbar">
-      <NavLink to="/user/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
-        Dashboard
-      </NavLink>
-      <NavLink to="/user/jobs" className={({ isActive }) => (isActive ? "active" : "")}>
-        Jobs
-      </NavLink>
-      <NavLink to="/user/resources" className={({ isActive }) => (isActive ? "active" : "")}>
-        Resources
-      </NavLink>
-      <NavLink to="/user/profile" className={({ isActive }) => (isActive ? "active" : "")}>
-        Profile
-      </NavLink>
+      <img src="/assets/logo.png" alt="YouthLink" className="navbar-logo" />
+      
+      <div className="navbar-links">
+        <NavLink to="/user/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
+          Dashboard
+        </NavLink>
+        <NavLink to="/user/jobs" className={({ isActive }) => (isActive ? "active" : "")}>
+          Jobs
+        </NavLink>
+        <NavLink to="/user/resources" className={({ isActive }) => (isActive ? "active" : "")}>
+          Resources
+        </NavLink>
+        <NavLink to="/user/profile" className={({ isActive }) => (isActive ? "active" : "")}>
+          Profile
+        </NavLink>
+      </div>
+
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>
