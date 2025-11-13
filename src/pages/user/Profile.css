@@ -1,0 +1,624 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.profile-page {
+  min-height: 100vh;
+  background: #fafafa;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+}
+
+.profile-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+}
+
+/* Left Sidebar */
+.profile-left {
+  background: #fff;
+
+  border-radius: 8px;
+  padding: 24px;
+
+}
+
+.profile-left h2 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #CDEB3C;
+}
+
+.profile-avatar-wrap {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 6px;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  
+}
+
+.section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.section > strong {
+  display: block;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-head strong {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.small-edit {
+  background: #A78BFA;
+  border: 2px solid #000;
+  color: #000;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.1s;
+}
+
+.small-edit:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+.small-edit:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+.muted {
+  color: #888;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 12px 0 4px 0;
+  letter-spacing: 0.3px;
+}
+
+.career-track {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+/* Chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+  
+}
+
+.chip {
+  background: #A78BFA;
+  color: #000;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #000;
+  border-radius: 12px;
+  box-shadow: 1px 1px 0px #000;
+  
+}
+
+/* Right Content */
+.profile-right {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.profile-right h2 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #A78BFA;
+}
+
+/* Cards */
+.card {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.card-head strong {
+  color: #000;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.btn-add {
+  background: #CDEB3C;
+  border: 2px solid #000;
+  color: #000;
+  padding: 5px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.1s;
+}
+
+.btn-add:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+.btn-add:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+/* Items */
+.item {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #A78BFA;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.item-role {
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.item-summary {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.item-link {
+  color: #000;
+  background: #A78BFA;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.1s;
+  box-shadow: 1px 1px 0px #000;
+}
+
+.item-link:hover {
+  transform: translate(0.5px, 0.5px);
+  box-shadow: 0.5px 0.5px 0px #000;
+}
+
+/* Placeholder */
+.placeholder {
+  color: #aaa;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.placeholder.large {
+  background: #f9f9f9;
+  border: 2px dashed #ddd;
+  padding: 24px;
+  text-align: center;
+  border-radius: 6px;
+  color: #999;
+  font-weight: 400;
+}
+
+/* Skills Input */
+.input-skill {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #000;
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 13px;
+  flex: 1;
+  border-radius: 4px;
+}
+
+.input-skill:focus {
+  outline: none;
+  border-color: #CDEB3C;
+}
+
+.btn-small {
+  background: #A78BFA;
+  border: 2px solid #000;
+  color: #000;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.1s;
+}
+
+.btn-small:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+.btn-small:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+/* CV Textarea */
+.cv-text {
+  width: 100%;
+  min-height: 160px;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #000;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+  resize: vertical;
+  border-radius: 4px;
+}
+
+.cv-text:focus {
+  outline: none;
+  border-color: #A78BFA;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 28px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 3px 3px 0px #000;
+}
+
+.modal-card h3 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 18px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #CDEB3C;
+}
+
+.modal-card input,
+.modal-card textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #000;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.modal-card input:focus,
+.modal-card textarea:focus {
+  outline: none;
+  border-color: #CDEB3C;
+}
+
+.modal-card textarea {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Roles List */
+.roles-list {
+  margin-bottom: 18px;
+
+}
+.modal-card {
+  width: 400px;              /* fixed width */
+  max-height: 500px;         /* fixed height */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;          /* hide overflowing content outside modal card */
+  display: flex;
+  flex-direction: column;
+}
+
+.roles-list {
+  flex: 1;                   /* take remaining space in modal */
+  overflow-y: auto;          /* vertical scroll if items exceed height */
+  margin: 12px 0;
+  padding-right: 8px;        /* some space for scrollbar */
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.modal-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;           /* prevents shrinking when list scrolls */
+}
+/* Make the roles list scrollable with a nice scrollbar */
+.roles-list {
+  max-height: 300px; /* fixed height */
+  overflow-y: auto;
+  padding-right: 8px; /* leave space for scrollbar */
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+.roles-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.roles-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.roles-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.roles-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Firefox */
+.roles-list {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.role-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.role-row:hover {
+  background: #f0f0f0;
+  border-color: #A78BFA;
+}
+
+.role-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #A78BFA;
+}
+
+.role-row span {
+  color: #000;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Modal Actions */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+.btn {
+  background: #CDEB3C;
+  border: 2px solid #000;
+  color: #000;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.1s;
+}
+
+.btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+.btn-link {
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.1s;
+}
+
+.btn-link:hover {
+  background: #A78BFA;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+.btn-link:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-inner {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-left {
+    order: 2;
+  }
+  
+  .profile-right {
+    order: 1;
+  }
+}
+.cv-parser {
+  margin-top: 20px;
+}
+
+.cv-text {
+  width: 100%;
+  min-height: 300px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.cv-text:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.cv-tips {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  color: #666;
+}
+
+.cv-tips strong {
+  color: #333;
+}
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar-edit-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: #3c71a7;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-edit-icon:hover {
+  background-color: #357abd;
+  transform: scale(1.1);
+}
+
+.avatar-edit-icon svg {
+  color: white;
+}

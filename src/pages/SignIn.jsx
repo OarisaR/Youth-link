@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import bg from "./signin.png"
+import bg from "./signin.png";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
 import "./SignIn.css";
@@ -35,30 +35,43 @@ export default function SignIn() {
       setPassword("");
     } catch (err) {
       console.error(err);
-      setError(err.message); // Display Firebase error
+
+      let errorMessage = "Something went wrong. Please try again.";
+
+      switch (err.code) {
+        case "auth/invalid-email":
+          errorMessage = "Invalid email format.";
+          break;
+        case "auth/invalid-credential":
+          errorMessage =
+            "Invalid email or password. Please check your credentials and try again.";
+          break;
+
+        default:
+          errorMessage =
+            "Unable to sign in. Please check your connection or try again later.";
+      }
+
+      setError(errorMessage);
     }
   };
 
   return (
-   <section
-  id="signin"
-  className="yl-signin"
-  style={{
-    backgroundImage: `url(${bg})`,
-    backgroundRepeat: "no-repeat",      
-    backgroundPosition: "center center", 
-    backgroundSize: "cover",             // zooms in to fill the section
-    backgroundAttachment: "fixed",       
-  }}
->
-
-      <div
-        className="yl-signin__backdrop"
-        aria-hidden="true"
-      />
+    <section
+      id="signin"
+      className="yl-signin"
+      style={{
+        backgroundImage: `url(${bg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover", // zooms in to fill the section
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="yl-signin__backdrop" aria-hidden="true" />
       <img
         src="/assets/logo.png"
-        style={{ width: "200px", height: "auto",marginTop:"-15px" }}
+        style={{ width: "200px", height: "auto", marginTop: "-15px" }}
         alt="YouthLink Logo"
         className="yl-signin__logo"
       />

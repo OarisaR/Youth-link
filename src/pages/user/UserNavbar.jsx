@@ -10,7 +10,7 @@ export default function UserNavbar() {
     const auth = getAuth();
     try {
       await signOut(auth);
-      navigate("/signin");
+      navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);
     }

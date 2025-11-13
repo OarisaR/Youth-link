@@ -4,6 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 import {getAuth} from 'firebase/auth';
 import {getFirestore} from 'firebase/firestore';
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyAwopvr6LGpq9IUUjJstuZMNnXEByAYE7o",
   authDomain: "youth-link-dccfe.firebaseapp.com",
